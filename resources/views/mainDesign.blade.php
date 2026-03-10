@@ -100,9 +100,12 @@
                                     <x-responsive-nav-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                                        {{ __('Log Out') }}
+                                        {{ __('Log out') }}
                                     </x-responsive-nav-link>
                                 </form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                             </li>
                         @endif
                     </ul>
