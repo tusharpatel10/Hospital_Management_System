@@ -1,4 +1,4 @@
-@extends('mainDesign');
+@extends('mainDesign')
 
 @section('index_page')
     @include('hero_page')
