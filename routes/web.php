@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 
 Route::get('/', [UserController::class, 'Index'])->name('index');
+Route::get('/all_doctors', [UserController::class, 'allDoctors'])->name('all_doctors');
 
 Route::get('/dashboard', [UserController::class, 'Dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
