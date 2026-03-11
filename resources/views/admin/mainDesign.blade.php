@@ -61,8 +61,8 @@
                     </a>
                     <div class="collapse" id="auth">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank
-                                    Page </a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ route('add_doctors') }}"> Add Doctors
+                                </a></li>
                             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
                             </li>
                             <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
@@ -128,7 +128,11 @@
                     </button>
                 </div>
             </nav>
-
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @yield('add_doctors')
+                </div>
+            </div>
         </div>
         <!-- page-body-wrapper ends -->
     </div>
