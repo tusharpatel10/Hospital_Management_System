@@ -31,4 +31,10 @@ class AdminController extends Controller
         $doctor->save();
         return redirect()->back()->with('doctor_addmessage', 'Doctor Added Successfully');
     }
+
+    public function viewDoctors()
+    {
+        $doctors = Doctor::all();
+        return view('admin.view_doctors', compact('doctors'));
+    }
 }
