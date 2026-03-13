@@ -210,29 +210,33 @@
     <div class="page-section">
         <div class="container">
             <h1 class="text-center wow fadeInUp">Make an Appointment</h1>
-
-            <form class="main-form">
+            <p class="bg bg-primary">
+                @if ('appointment_message')
+                    {{ session('appointment_message') }}
+                @endif
+            </p>
+            <form class="main-form" action="{{ route('appointment') }}" method="post">
+                @csrf
                 <div class="row mt-5 ">
                     <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                        <input type="text" class="form-control" placeholder="Full name">
+                        <input type="text" class="form-control" name="full_name" placeholder="Full name">
                     </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                        <input type="text" class="form-control" placeholder="Email address..">
+                        <input type="text" class="form-control" name="email" placeholder="Email address..">
                     </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
-                        <input type="date" class="form-control">
+                        <input type="date" class="form-control" name="submission_date">
                     </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-                        <select name="departement" id="departement" class="custom-select">
-                            <option value="general">General Health</option>
-                            <option value="cardiology">Cardiology</option>
-                            <option value="dental">Dental</option>
-                            <option value="neurology">Neurology</option>
-                            <option value="orthopaedics">Orthopaedics</option>
+                        <select name="doctor_specialist" class="custom-select">
+                            @foreach ($doctors as $doctor)
+                                <option value="{{ $doctor->speciality }}">
+                                    {{ $doctor->doctors_name }} - Speciality ( {{ $doctor->speciality }} )</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
-                        <input type="text" class="form-control" placeholder="Number..">
+                        <input type="text" class="form-control" name="phone" placeholder="Number..">
                     </div>
                     <div class="col-12 py-2 wow fadeInUp" data-wow-delay="300ms">
                         <textarea name="message" id="message" class="form-control" rows="6" placeholder="Enter message.."></textarea>
